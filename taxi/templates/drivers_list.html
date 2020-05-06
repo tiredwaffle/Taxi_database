@@ -1,0 +1,40 @@
+{% extends "base_pages/base.html" %}
+
+
+
+{% block content %}
+<p> <br> </p>
+	<h1>{{title}}</h1>
+
+<hr>
+<a class="btn btn-primary" href="new-driver/" role="button">Add driver</a>
+<hr>
+<ul class="list">		
+	{% for object in object_list %}
+	 	<div class="card mb-3" >
+		  <div class="row no-gutters">
+		    <div>
+		      <img src="https://i.ibb.co/WgqgW5J/pic.png" class="card-img" alt="pic" border="0" height="200" width="200" >
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <a href="{{object.license_number}}/"><h5 class="card-title"><b>{{object.first_name}} {{object.last_name}}</b></h5></a>
+		        <p class="card-text"><b>Gender</b>: {{object.gender}}<br>
+		        <b>Was born</b>: {{object.birth_date}}<br>
+				<b>Adress</b>: {{object.street}} street, {{object.number}}, {{object.city}}, {{object.postal_code}}<br>
+				<b>License number</b>: {{object.license_number}}<br>
+				<b>Works since</b>: {{object.hire_date}}<br>
+				<b>Mobile umber</b>: {{object.mobile_number}}</p>
+				<a class="btn btn-danger" href="{{object.license_number}}/delete/" role="button">Delete driver</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+	{% endfor %}
+</ul>
+	
+<hr>
+	
+{% endblock %}
+
+

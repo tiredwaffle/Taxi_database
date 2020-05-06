@@ -1,0 +1,40 @@
+{% extends "base_pages/base.html" %}
+
+
+<br>
+{% block content %}
+<p><br></p>
+	<h1>{{title}}</h1>
+	<hr>	
+<ul class="list">		
+	{% for object in object_list %}
+	 	<div class="card mb-3" >
+		  <div class="row no-gutters">
+		    <div>
+		       <img src="https://i.ibb.co/6svBpp7/alekseyvanin190200042.jpg" alt="alekseyvanin190200042" border="0" height="200" width="200" >
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title"><b>Order #{{object.order_id}}</b></h5>
+		        <p class="card-text"><b>Status</b>: {{object.status}}<br>
+		        <b>Number of people</b>: {{object.number_people}}<br>
+				<b>Order Date Time</b>: {{object.order_date_time}}<br>
+				<b>Start and End of the Trip</b>: {{object.date_time_start}} - {{object.date_time_end}}<br>
+				<b>Start place</b>: {{object.from_street}} street, {{object.from_number}}, {{object.from_city}}<br>
+				<b>End place</b>: {{object.to_street}} street, {{object.to_number}}, {{object.to_city}}<br>
+				<b>Is paid?</b>: {{object.is_paid}}<br>
+				<b>Client ID</b>: {{object.client_id.client_id}}<br>
+				<b>Client number</b>: {{object.client_id.mobile_number}}<br>
+				<a href="/cars/{{object.taxi_id.taxi_id}}/" role="button"><b>Taxi</b></a></p> 
+				<a class="btn btn-danger" href="{{object.order_id}}/delete/" role="button">Delete order</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+	{% endfor %}
+</ul>
+<hr>
+	
+{% endblock %}
+
+

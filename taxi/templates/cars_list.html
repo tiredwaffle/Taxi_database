@@ -1,0 +1,36 @@
+{% extends "base_pages/base.html" %}
+
+
+{% block content %}
+<p><br></p>
+<h1>{{title}}</h1>
+<hr>
+<!--<a class="btn btn-primary" href="/cars/new-car/" role="button">Add car</a>
+<hr>-->
+<ul class="list">		
+	{% for object in object_list %}
+	 	<div class="card mb-3" >
+		  <div class="row no-gutters">
+		    <div>
+		       <img src="https://i.ibb.co/wCDFWdB/8064-200.png" alt="8064-200" class="card-img" border="0" height="200" width="200" >
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <a href="{{object.taxi_id}}/"><h5 class="card-title"><b>Car #{{object.taxi_id}}</b></h5></a>
+		        <p class="card-text">
+		        <b>License plate number</b>: {{object.license_plate.license_plate}}<br>
+		        <b>Manufacture year</b>: {{object.license_plate.manufacture_year}}<br>
+		        <b>Model</b>: {{object.license_plate.model_id.model_name.model_name}}<br>
+		        <b>Maximum capacity of car</b>: {{object.license_plate.model_id.model_name.max_capacity}}<br></p>
+				<!--<a class="btn btn-danger" href="{{object.taxi_id.taxi_id}}/delete/" role="button">Delete car</a>-->
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+	{% endfor %}
+</ul>
+<hr>
+	
+{% endblock %}
+
+
